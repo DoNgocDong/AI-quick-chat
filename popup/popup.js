@@ -1,5 +1,3 @@
-const PORTS = 'quick-chat';
-
 const CMDS = {
   CHAT: 'chat'
 }
@@ -9,7 +7,7 @@ async function main() {
 
   chrome.runtime.sendMessage({ 
     cmd: CMDS.CHAT,
-    data: chatContent
+    prompt: chatContent
   }, function(response) {
     console.log(response);
   });
