@@ -1,0 +1,52 @@
+body {
+  background-color: #eee;
+  font-family: "Roboto",arial,sans-serif;
+  font-size: 13px;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: .7em 0;
+}
+
+#content {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 40px auto 20px;
+  padding: 30px;
+  width: 650px;
+}
+
+.options {
+  display: table-row;
+  align-content: center;
+}
+
+.option_name {
+  display: table-cell;
+  font-weight: bold;
+  margin-top: 3px;
+  padding-top: 16px;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+.option_input {
+  display: table-cell;
+}
+
+.saveStatus {
+  background-color: #fff1a8;
+  font-weight: bold;
+  padding: 3px;
+  display: none;
+}
+
+.footer {
+  text-align: center;
+  margin-top: .4em;
+}
