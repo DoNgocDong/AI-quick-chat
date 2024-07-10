@@ -39,7 +39,7 @@ h1 {
   display: table-cell;
 }
 
-.saveStatus {
+#saveStatus {
   background-color: #fff1a8;
   font-weight: bold;
   padding: 3px;
