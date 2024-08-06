@@ -4,6 +4,15 @@ const CMDS = {
   CHAT: 'chat'
 }
 
+function generater(text) {
+  const newBlank = document.getElementById('new-blank');
+
+  const converter = new showdown.Converter();
+  const outputHtml = converter.makeHtml(String(text));
+
+  newBlank.innerHTML = outputHtml;
+}
+
 async function main() {
   const chatContent = document.getElementById('chat-content').value;
   const { apiKey } = await chrome.storage.sync.get({ apiKey: config.API_KEY });
@@ -13,7 +22,7 @@ async function main() {
     prompt: chatContent,
     apiKey
   }, function(response) {
-    console.log(response);
+    generater(response);
   });
 }
 
@@ -25,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const newBlank = document.getElementById('new-blank');
 
     searchBar.style.display = 'none';
-    newBlank.append('Generating...');
-    newBlank.style.display = 'flex';
+    newBlank.append('Please wait...');
+    newBlank.style.display = 'block';
 
     main();
   });
