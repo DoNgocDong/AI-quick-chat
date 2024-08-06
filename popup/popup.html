@@ -10,12 +10,12 @@
 </head>
 <body>
   <div class="content">
-    <div class="search-bar input-group input-group-sm mb-3">
+    <div id="search-bar" class="search-bar input-group input-group-sm mb-3">
       <input id="chat-content" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" autofocus>
       <button class="btn btn-success" type="button" id="sendBtn">Quick chat</button>
     </div>
 
-    <div class="new-blank"></div>
+    <div id="new-blank"></div>
   </div>
 
   <div class="footer">
@@ -26,6 +26,6 @@
   </div>
 
   <script src="../libs/js/bootstrap.min.js"></script>
-  <script src="popup.js"></script>
+  <script src="popup.js" type="module"></script>
 </body>
 </html>

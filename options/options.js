@@ -1,25 +1,32 @@
 const saveOptions = () => {
-  const apiKey = document.getElementById('targetApiKey').value;
+  const apiKey = String(document.getElementById('targetApiKey').value);
 
-  chrome.storage.sync.set( { apiKey: apiKey }, () => {
-    const status = document.getElementById('saveStatus');
-    status.style.display = 'inline';
-
+  function setTimeoutDisplay(element, ms) {
     setTimeout(() => {
-      status.style.display = 'none';
-    }, 1000);
-  });
+      element.style.display = 'none';
+    }, ms);
+  }
+
+  if(!apiKey || apiKey == '') {
+    chrome.storage.sync.clear();
+  }
+  else {
+    chrome.storage.sync.set({ apiKey: apiKey.trim() });
+  }
+
+  const status = document.getElementById('saveStatus');
+  status.style.display = 'inline';
+  setTimeoutDisplay(status, 1000);
 };
 
 const resetOptions = () => {
-  chrome.storage.sync.set({ apiKey: '' }, () => {
-    document.getElementById('targetApiKey').value = '';
-    document.getElementById('saveStatus').style.display = 'none'
-  });
+  chrome.storage.sync.clear();
+  document.getElementById('targetApiKey').value = '';
+  document.getElementById('saveStatus').style.display = 'none'
 }
 
 const restoreOptions = () => {
-  chrome.storage.sync.get( { apiKey: '' }, (items) => {
+  chrome.storage.sync.get({ apiKey: '' }, (items) => {
     document.getElementById('targetApiKey').value = items.apiKey;
   });
 };

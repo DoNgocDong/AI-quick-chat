@@ -16,6 +16,10 @@ body {
   font-size: 11px;
 }
 
+#new-blank {
+  display: none;
+}
+
 .footer {
   padding: 5px;
   background-color: darkgray;
